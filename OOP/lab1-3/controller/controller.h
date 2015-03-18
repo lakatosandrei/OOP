@@ -2,6 +2,7 @@
 # define CONTROLLER_H
 
 # include "../header.h"
+# include "../repository/repository.h"
 
 typedef	struct	contr
 {
@@ -11,6 +12,7 @@ typedef	struct	contr
 	void (*deletePart)	(vector *);
 	void (*sortPart)	(vector *, int (*)(void *, void *));
 	void (*filterPart)	(vector *, int (*)(void *, void *), void *);
+	void (*cleanMemory)	(vector *, struct contr *, repository *);
 }		controller;
 controller	*createController(void);
 #endif

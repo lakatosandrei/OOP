@@ -7,13 +7,9 @@ void	printMenu(void)
 	printf("%s\n", menu);
 }
 
-char	readCommand(void)
+void	readCommand(char **command)
 {
-	char	*command;
-
-	command = (char *)malloc(sizeof(char) * 2);
-	scanf("%s", command);
-	return (command[0]);
+	scanf("%s", *command);
 }
 
 char	readType(void)
@@ -138,26 +134,31 @@ void	filterPart(vector *partList, controller *ct)
 	}
 }
 
-void	startUI(vector *partList, controller *ct)
+void	startUI(vector *partList, controller *ct, repository *rep)
 {
-	char	command;
+	char	*command;
 
+	command = (char *)malloc(sizeof(char) * 2);
 	while (1)
 	{
 		printMenu();
-		command = readCommand();
-		switch (command)
+		readCommand(&command);
+		switch (command[0])
 		{
 			case '0':
-				exit(0);
+				free(command);
+				ct->cleanMemory(partList, ct, rep);
 			case '1':
 				ct->addPart(partList);
+				rep->modifyRepository(partList);
 				break ;
 			case '2':
 				ct->modifyPart(partList);
+				rep->modifyRepository(partList);
 				break ;
 			case '3':
 				ct->deletePart(partList);
+				rep->modifyRepository(partList);
 				break ;
 			case '4':
 				ct->printPart(partList);

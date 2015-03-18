@@ -1,7 +1,7 @@
 NAME = program
 
 SRCS =	main_t.c domain/part.c domain/vector.c domain/iterator.c\
-	controller/controller.c ui/ui.c
+	controller/controller.c ui/ui.c repository/repository.c
 
 OBJS = $(SRCS:.c=.o)
 

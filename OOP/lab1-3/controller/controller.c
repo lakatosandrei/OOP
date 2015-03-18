@@ -93,7 +93,7 @@ void	sort(vector *partList, int (*cmp)(void *, void *))
 {
 	int	i;
 	int	j;
-	vector	aux;
+	void	*aux;
 
 	i = 0;
 	while (i < partList->len)
@@ -103,9 +103,9 @@ void	sort(vector *partList, int (*cmp)(void *, void *))
 		{
 			if ((*cmp)(partList->elem[i], partList->elem[j]) == 1)
 			{
-				aux = partList[i];
-				partList[i] = partList[j];
-				partList[j] = aux;
+				aux = partList->elem[i];
+				partList->elem[i] = partList->elem[j];
+				partList->elem[j] = aux;
 			}
 			j++;
 		}
@@ -129,6 +129,27 @@ void	filter(vector *partList, int (*filt)(void *, void *), void *info)
 	}
 }
 
+void	cleanMemory(vector *partList, controller *ct, repository *rep)
+{
+	int	i;
+
+	(void)partList;
+	(void)ct;
+	(void)rep;
+	i = 0;
+	while (i < partList->len)
+	{
+		elibPart(partList->elem[i]);
+		free(partList->elem[i]);
+		i++;
+	}
+	free(partList->elem);
+	free(partList);
+	free(ct);
+	free(rep);
+	exit(0);
+}
+
 controller	*createController(void)
 {
 	controller	*ct;
@@ -140,5 +161,6 @@ controller	*createController(void)
 	ct->deletePart = delPart;
 	ct->sortPart = sort;
 	ct->filterPart = filter;
+	ct->cleanMemory = cleanMemory;
 	return (ct);
 }

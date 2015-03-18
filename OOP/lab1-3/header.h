@@ -4,6 +4,7 @@
 # include "domain/domain.h"
 # include "controller/controller.h"
 # include "domain/vector.h"
+# include "repository/repository.h"
 # include "ui/ui.h"
 # include <string.h>
 

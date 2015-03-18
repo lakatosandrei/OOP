@@ -14,5 +14,5 @@ typedef struct vect
 void		addToVector(vector *partList, void *elem);
 void		deleteFromVector(vector *partList, int poz, void (*elib)(void *));
 void		modifyFromVector(vector *partList, int poz, void *partM, void (*elib)(void *));
-vector		*createVector(void);
+vector		*createVector();
 #endif
