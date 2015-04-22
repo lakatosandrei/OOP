@@ -1,9 +1,9 @@
 NAME = program
 
-SRCS =	main_t.cpp domain/part1.cpp  \
-	controller/controller.cpp ui/ui.cpp repository/repository1.cpp
+SRCS =	main_t.cpp domain/part.cpp  \
+	controller/controller.cpp ui/ui.cpp repository/repository.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 OBJREG = *.o
 

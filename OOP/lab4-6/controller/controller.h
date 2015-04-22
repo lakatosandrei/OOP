@@ -1,17 +1,23 @@
-#ifndef CONTROLLER_H
-# define CONTROLLER_H
+#ifndef CONTROLLER1_H
+# define CONTROLLER1_H
 
-# include "../header.h"
+# include "../domain/part.h"
 # include "../repository/repository.h"
 
-typedef	struct	contr
-{
-	void (*addPart)		(repository *, char *, char *, int *);
-	void (*modifyPart)	(repository *, char *, char *, int *, int);
-	void (*deletePart)	(repository *, int poz);
-	void (*sortPart)	(repository *, int (*)(void *, void *));
-	void (*filterPart)	(repository *, int (*)(void *, void *), void *);
-	void (*cleanMemory)	(struct contr *, repository *);
-}		controller;
-controller	*createController(void);
+# include <iostream>
+# include <vector>
+
+class Controller {
+	private:
+		Repository*	_rep;
+	public:
+		Controller(Repository* rep) {this->_rep = rep;}
+		void	addPart(char* fname, char* lname, int* score);
+		void	modifyPart(char *fname, char *lname, int *score, int poz);
+		void	delPart(int poz);
+		void	sort(int (*cmp)(Part*, Part*));
+		void	filter(int (*filt)(Part*, void *), void *info);
+		~Controller(void) {delete this->_rep;}
+};
+
 #endif

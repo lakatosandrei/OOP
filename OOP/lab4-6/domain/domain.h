@@ -4,5 +4,6 @@
 # include "part.h"
 # include <string.h>
 # include <stdlib.h>
+# include <iostream>
 
 #endif
