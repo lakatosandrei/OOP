@@ -1,7 +1,11 @@
 #ifndef UI1_H
 # define UI1_H
 
-# include "../domain/domain.h"
+# include "../repository/repository.h"
+# include "../controller/controller.h"
+# include <iostream>
+# include <string.h>
+# include "../domain/part.h"
 
-void	startUI(Controller* ct, Repository* rep);
+void	startUI(Controller* ct);
 #endif

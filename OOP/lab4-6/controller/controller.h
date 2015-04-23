@@ -12,11 +12,12 @@ class Controller {
 		Repository*	_rep;
 	public:
 		Controller(Repository* rep) {this->_rep = rep;}
-		void	addPart(char* fname, char* lname, int* score);
-		void	modifyPart(char *fname, char *lname, int *score, int poz);
-		void	delPart(int poz);
-		void	sort(int (*cmp)(Part*, Part*));
-		void	filter(int (*filt)(Part*, void *), void *info);
+		void			addPart(char* fname, char* lname, int* score);
+		void			modifyPart(char *fname, char *lname, int *score, int poz);
+		void			delPart(int poz);
+		void			sort(int (*cmp)(void*, void*));
+		std::vector<Part*>*	filter(int (*filt)(void*, void *), void *info);
+		std::vector<Part*>*	getList(void);
 		~Controller(void) {delete this->_rep;}
 };
 

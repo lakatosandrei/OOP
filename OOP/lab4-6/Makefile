@@ -1,6 +1,6 @@
 NAME = program
 
-SRCS =	main_t.cpp domain/part.cpp  \
+SRCS =	main.cpp domain/part.cpp  \
 	controller/controller.cpp ui/ui.cpp repository/repository.cpp
 
 OBJS = $(SRCS:.cpp=.o)

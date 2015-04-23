@@ -1,5 +1,6 @@
 #include "domain.h"
 #include<iostream>
+
 Part::Part(char* fname, char* lname, int* score)
 {
 	int	i;
@@ -24,7 +25,6 @@ Part::Part(void)
 
 Part::~Part(void)
 {
-	std::cout << "O intrat.\n" << this->_fname << "\n";
 	free(this->_fname);
 	free(this->_lname);
 	free(this->_score);

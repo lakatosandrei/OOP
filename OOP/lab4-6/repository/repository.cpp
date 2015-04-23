@@ -22,5 +22,28 @@ void	myfunction(Part* el)
 
 Repository::~Repository(void)
 {
-	std::for_each (this->_partList->begin(), this->_partList->end(), myfunction);
+	std::vector<Part*>::iterator	it;
+
+	for(it = this->_partList->begin(); it != this->_partList->end() ; it++)
+	{
+		std::cout << *it << '\n';
+		delete *it;
+	}
+	this->_partList->clear();
+}
+
+void	Repository::pushPart(Part* part)
+{
+	this->_partList->push_back(part);
+}
+
+void	Repository::modifyPart(Part* part, int poz)
+{
+	delete (*this->_partList)[poz];
+	(this->_partList)->at(poz) = part;
+}
+
+void	Repository::deletePart(int poz)
+{
+	this->_partList->erase(this->_partList->begin() + poz);
 }

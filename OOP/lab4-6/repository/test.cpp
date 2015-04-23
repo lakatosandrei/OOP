@@ -25,11 +25,10 @@ int	main(void)
 		std::cout << *it << '\n';
 		it++;
 	}
-	delete	test;
-	delete	partList;
-	delete	rep;
 	free(score);
 	free(fname);
 	free(lname);
+	delete rep;
+	delete test;
 	return (0);
 }

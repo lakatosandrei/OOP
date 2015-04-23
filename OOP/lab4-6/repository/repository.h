@@ -16,6 +16,9 @@ class Repository {
 	public:
 		Repository(void);
 		~Repository(void);
+		void			pushPart(Part* part);
+		void			modifyPart(Part* part, int poz);
+		void			deletePart(int poz);
 		std::vector<Part*>*	getPart(void) {return (this->_partList); }
 };
 
